@@ -59,6 +59,9 @@ div {
 
 <h1>PAYMENT</h1>
 <hr>
+   <h2>Name: Sujith</h2>
+   <h4>Current Balance: <span id="myAccountBalance">17000</span></h4>
+<hr>
 <p>Select the user you want to transfer and the amount.</p>
 <div>
   <form>
@@ -77,7 +80,28 @@ div {
     </select>
     <label for="amount">AMOUNT : </label>
     <input type="text" id="amount" name="amount" placeholder="Enter your amount...">
-    <a href="https://srirag-t.github.io/Basic-Banking-System-TSF-Task/final.html" class="button">PROCEED TO PAY</a>
+     <p><input type="submit" id="submit" name="submit" value="Pay Now" /></p>
+    <div id="result"></div>
+  </form>
+</div>
+  <script>
+    function display()
+    {
+      var getamount=document.getElementById("amount").value;
+     
+      var myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText) - getamount;
+      if(getamount>17000)
+      {
+      alert("Insufficient Balance.");
+      }
+      else{
+      document.getElementById("result").innerHTML="You have done transaction of amount "+getamount+"to  "+document.getElementById("names").value+" <br> Your Account Balance is   "+myAccountBalance;
+       document.getElementById("myAccountBalance").innerText = myAccountBalance;
+      }
+      return false;
+    }
+  </script>
+   
   </form>
 </div>
 </body>
